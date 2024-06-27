@@ -5,6 +5,7 @@ class PropertyOffer(models.Model):
     # Model properties
     _name = "estate.property.offer"
     _description = "Estate Property Offers"
+    _order = "price desc"
     
     # SQL constraints
     _sql_constraints=[
@@ -50,3 +51,5 @@ class PropertyOffer(models.Model):
             date = offer.create_date.date() if offer.create_date else fields.Date.today()
             offer.validity = (offer.date_deadline - date).days
             
+    property_type_id = fields.Many2one(related="property_id.property_type_id")
+    
