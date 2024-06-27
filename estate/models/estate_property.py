@@ -12,14 +12,14 @@ class Property(models.Model):
     _name = "estate.property"
     _description = "Estate properties" 
     
-    # 
-    # SQL Constraints
-    # 
+    # SQL Constraints 
     _sql_constraints=[
         ('expected_price', 'CHECK(expected_price > 0)', 'expected price must be positive'),
         ('selling_price', 'CHECK(selling_price >= 0)', 'Selling price must be positive'),
         ('name', 'unique(name)', 'The name must be unique'),
     ]
+    
+    _order = 'id desc'
     
     #
     # Fields
