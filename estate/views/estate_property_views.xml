@@ -17,7 +17,7 @@
                 <group>
                     <!-- Filter -->
                      <!--  domain="['|', ('state', '=', 'new'), ('state','=','offerreceived')]" -->
-                    <filter string='Availible' name='active'  domain="['|', ('state', '=', 'new'), ('state','=','offerreceived')]"  />
+                    <filter string='Availible' name='active'  domain="['|', ('state', '=', 'new'), '|', ('state','=','offerreceived'), ('state','=','offeraccepted')]"  />
                 </group>
                 <group>
                     <!-- Group View -->
@@ -34,8 +34,8 @@
         <field name="arch" type='xml'>
             <form string='Property'>
                 <header >
-                    <button name="property_action_cancel" type="object" string="Cancel"  states="new,offer_received,offer_accepted"/>
-                    <button name="property_action_sold" type="object" string="Sold"  states="new,offer_received,offer_accepted"/>
+                    <button name="property_action_cancel" type="object" string="Cancel"  states="new,offerreceived,offeraccepted"/>
+                    <button name="property_action_sold" type="object" string="Sold"  states="new,offerreceived,offeraccepted"/>
                     <field name='state' widget='statusbar'/>
                 </header>
                 <sheet>
