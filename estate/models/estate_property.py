@@ -127,3 +127,12 @@ class Property(models.Model):
         for property in self:
             if float_compare(property.selling_price, property.expected_price * 0.9, precision_digits=2) < 0 and property.selling_price > 0:
                 raise exceptions.ValidationError("Selling price must be higher than 90% of expected price")
+
+    #  OnDelete Check
+    @api.ondelete(at_uninstall=False)
+    def ondelete(self):
+        for record in self:
+            if (record.state != 'new' or record.state != 'canceled'):
+                raise exceptions.UserError("Property can only be deleted if its new or canceled")
+
+    
