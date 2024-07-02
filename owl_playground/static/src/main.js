@@ -1,7 +1,7 @@
 /** @odoo-module **/
 
 import { browser } from "@web/core/browser/browser";
-import { mount } from "@odoo/owl";
+import { mount, Component } from "@odoo/owl";
 import { Playground } from "./playground";
 
 // The following code ensures that owl mount the component when ready.
@@ -20,6 +20,9 @@ owl.whenReady( () => {
  * containing the stack trace of the error and any errors that caused it.
  * @param {Event} ev
  */
+
+
+
 function logError(ev) {
     ev.preventDefault();
     let error = ev ?.error || ev.reason;

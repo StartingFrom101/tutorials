@@ -5,7 +5,7 @@
                 <head>
                     <t t-call-assets="owl_playground.assets_playground"/>
                 </head>
-
+                    
                 <body>
                 </body>
             </html>
